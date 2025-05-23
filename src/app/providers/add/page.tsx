@@ -5,7 +5,7 @@ import Navbar from '@/components/Navbar';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { TagIcon, DocumentTextIcon, CheckCircleIcon, CubeIcon, EnvelopeIcon } from '@heroicons/react/24/outline';
+import { TagIcon,  CheckCircleIcon, CubeIcon, EnvelopeIcon } from '@heroicons/react/24/outline';
 
 interface FormData {
   name: string;

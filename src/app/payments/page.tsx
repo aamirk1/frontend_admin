@@ -15,6 +15,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  TooltipItem,
 } from 'chart.js';
 import { Bar, Line } from 'react-chartjs-2';
 
@@ -253,7 +254,7 @@ const barChartOptions = {
       bodyFont: { size: 12 },
       padding: 10,
       callbacks: {
-        label: (context: any) => {
+       label: (context: TooltipItem<'bar'>) => {
           const value = context?.raw ?? 0;
           return `Income: $${value}`;
         },
@@ -304,7 +305,7 @@ const lineChartOptions = {
       bodyFont: { size: 12 },
       padding: 10,
       callbacks: {
-        label: (context: any) => {
+        label: (context: TooltipItem<'line'>) => {
           const value = context?.raw ?? 0;
           return `Income: $${value}`;
         },

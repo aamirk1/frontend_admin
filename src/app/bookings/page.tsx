@@ -4,7 +4,7 @@ import Sidebar from '@/components/Sidebar';
 import Navbar from '@/components/Navbar';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { TrashIcon, CheckCircleIcon, EyeIcon } from '@heroicons/react/24/outline';
+import { TrashIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
 import { useRouter } from 'next/navigation';
 
 interface Booking {

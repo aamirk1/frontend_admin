@@ -16,9 +16,9 @@ import {
   Filler,
   PointElement,
   RadialLinearScale,
+  TooltipItem, // Import TooltipItem for typing
 } from 'chart.js';
 import { Bar, Line, Doughnut, PolarArea } from 'react-chartjs-2';
-import { CheckCircleIcon } from '@heroicons/react/24/outline';
 
 // Register Chart.js components
 ChartJS.register(
@@ -215,33 +215,6 @@ const colors = {
   purple: 'rgba(139, 92, 246, 0.8)',
 };
 
-// Shared chart options
-const chartOptions = {
-  responsive: true,
-  maintainAspectRatio: false,
-  plugins: {
-    legend: {
-      position: 'top' as const,
-      labels: {
-        font: {
-          size: 14,
-        },
-        color: '#374151',
-      },
-    },
-    tooltip: {
-      backgroundColor: 'rgba(0, 0, 0, 0.8)',
-      titleFont: { size: 14 },
-      bodyFont: { size: 12 },
-      padding: 10,
-    },
-  },
-  animation: {
-    duration: 1500,
-    easing: 'easeInOutQuad' as const,
-  },
-};
-
 // Bar chart options (Weekly, Yearly, Service-wise)
 const barChartOptions = {
   responsive: true,
@@ -256,8 +229,8 @@ const barChartOptions = {
       bodyFont: { size: 12 },
       padding: 10,
       callbacks: {
-        label: (context: any) => {
-          const value = context.raw;
+        label: (context: TooltipItem<'bar'>) => {
+          const value = context.raw as number;
           const percentage = ((value / totalBookings) * 100).toFixed(1);
           return `${context.label}: ${value} bookings (${percentage}%)`;
         },
@@ -309,8 +282,8 @@ const lineChartOptions = {
       bodyFont: { size: 12 },
       padding: 10,
       callbacks: {
-        label: (context: any) => {
-          const value = context.raw;
+        label: (context: TooltipItem<'line'>) => {
+          const value = context.raw as number;
           const percentage = ((value / totalBookings) * 100).toFixed(1);
           return `${context.label}: ${value} bookings (${percentage}%)`;
         },
@@ -366,8 +339,8 @@ const doughnutChartOptions = {
       bodyFont: { size: 12 },
       padding: 10,
       callbacks: {
-        label: (context: any) => {
-          const value = context.raw;
+        label: (context: TooltipItem<'doughnut'>) => {
+          const value = context.raw as number;
           const percentage = ((value / totalBookings) * 100).toFixed(1);
           return `${context.label}: ${value} bookings (${percentage}%)`;
         },
@@ -398,8 +371,8 @@ const polarAreaChartOptions = {
       bodyFont: { size: 12 },
       padding: 10,
       callbacks: {
-        label: (context: any) => {
-          const value = context.raw;
+        label: (context: TooltipItem<'polarArea'>) => {
+          const value = context.raw as number;
           const percentage = ((value / totalBookings) * 100).toFixed(1);
           return `${context.label}: ${value} bookings (${percentage}%)`;
         },
@@ -435,8 +408,8 @@ const serviceBarChartOptions = {
       bodyFont: { size: 12 },
       padding: 10,
       callbacks: {
-        label: (context: any) => {
-          const value = context.raw;
+        label: (context: TooltipItem<'bar'>) => {
+          const value = context.raw as number;
           const percentage = ((value / totalBookings) * 100).toFixed(1);
           return `${context.label}: ${value} bookings (${percentage}%)`;
         },
