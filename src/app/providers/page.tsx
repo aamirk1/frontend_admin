@@ -151,7 +151,6 @@ export default function ServiceProvidersPage() {
                           {provider.name}
                         </button>
                       </td>
-                      {/* <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{provider.name}</td> */}
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{provider.categoryName}</td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{provider.subcategoryName}</td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{provider.serviceName}</td>
